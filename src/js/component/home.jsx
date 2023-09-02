@@ -1,26 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import { Lines } from "./lines";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
+/*create a component*/
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  const [inputvalue, setinputvalue] = useState("");
+  const [sentences, setsentences] = useState([]);
+
+  /*Functon for add lines */
+  const addlines = () => {
+    setinputvalue("");
+    setsentences([...sentences, inputvalue]);
+  };
+
+  /*delete lines*/
+  const remove = (ind) => {
+    setsentences(
+      sentences.filter((sentence, index) => {
+        return index != ind;
+      })
+    );
+  };
+
+  return (
+    <div className="main">
+      <h1>todos</h1>
+      <div className="card">
+        <div className="form">
+          <input
+            type="text"
+            className="text"
+            placeholder="What needs to be done?"
+            value={inputvalue}
+            onChange={(e) => {
+              setinputvalue(e.target.value);
+            }}
+          />
+          <button onClick={addlines}>
+            <i className="fas fa-plus"></i>
+          </button>
+        </div>
+        {sentences.map((sentence, index) => {
+          return (
+            <Lines line={sentence} key={index} btn={() => remove(index)} />
+          );
+        })}
+        <div className="foot">{sentences.length} item Left</div>
+      </div>
+    </div>
+  );
 };
 
 export default Home;

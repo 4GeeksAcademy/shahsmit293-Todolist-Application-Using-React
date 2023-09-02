@@ -1,12 +1,79 @@
+body {
+  background-color: mintcream;
+}
+.main h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 5rem;
+  color: brown;
+}
 
-/* 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5% 30% 5% 30%;
+  background-color: mintcream;
+  box-shadow: 5px 10px #888888;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.header {
+  font-family: "Courier New", Courier, monospace;
+  color: brown;
+  width: 100%;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+}
 
-*/
+h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.form {
+  width: 100%;
+  padding: 4% 4% 1% 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: groove;
+}
+
+.details {
+  width: 100%;
+  padding: 4% 4% 1% 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: groove;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.foot {
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  padding: 1%;
+  margin-left: 25px;
+}
+
+input {
+  width: 100%;
+  height: 35px;
+  border: azure;
+  padding-right: 3%;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  background-color: mintcream;
+}
+
+.buttons {
+  color: red;
+  display: none;
+}
+
+.details:hover .buttons {
+  display: inline;
+}
